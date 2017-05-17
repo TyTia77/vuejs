@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <div id="app" v-on:click="click" v-on:mouseover="hover">
+        {{prop}}
+        <test-component></test-component>
+        <test-component></test-component>
+        <test-component></test-component>
+        <test-component></test-component>
+
+    </div>
+
+<body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js'></script>
+    <script>
+
+        Vue.component('test-component', {
+            data: function(){
+                return {
+                    prop: 'testprop'
+                }
+            },
+            template: '<div> test </div>'
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                prop: 'testprop'
+            },
+            methods: {
+                click(e){
+                    alert(e);
+                },
+
+                hover(){
+                    alert('hover');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
